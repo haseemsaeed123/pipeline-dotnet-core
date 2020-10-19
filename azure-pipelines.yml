@@ -22,3 +22,13 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+
+
+- download: none
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Build Artifacts'
+  inputs:
+    buildType: 'current'
+    artifactName: 'haseemapparti'
+    itemPattern: '**/*.zip'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
