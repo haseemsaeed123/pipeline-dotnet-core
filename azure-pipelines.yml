@@ -22,10 +22,3 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'haseemapp'
-    downloadPath: '$(System.ArtifactsDirectory)'
